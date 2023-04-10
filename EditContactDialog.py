@@ -3,6 +3,7 @@ from PyQt5.QtGui import *
 import mysql.connector
 from dbconnect import mydb
 
+
 class EditContactDialog(QDialog):
     def __init__(self, name, phone, email, parent=None):
         super().__init__(parent)

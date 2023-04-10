@@ -18,67 +18,83 @@ class MainWindow(QMainWindow):
         # Create the table widget for contacts
         self.contacts_table = QTableWidget(self)
         self.contacts_table.setGeometry(10, 120, 740, 300)
-        self.contacts_table.setStyleSheet("font-family: 'Quicksand'; font-size: 18px;")
+        self.contacts_table.setStyleSheet(
+            "font-family: 'Quicksand'; font-size: 18px;")
         self.contacts_table.setColumnCount(3)
-        self.contacts_table.setHorizontalHeaderLabels(["Name", "Phone", "Email"])
+        self.contacts_table.setHorizontalHeaderLabels(
+            ["Name", "Phone", "Email"])
         self.contacts_table.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        self.contacts_table.horizontalHeader().setStyleSheet("font-family: 'Quicksand'; font-weight: bold; font-size: 18px;")
+        self.contacts_table.horizontalHeader().setStyleSheet(
+            "font-family: 'Quicksand'; font-weight: bold; font-size: 18px;")
         self.contacts_table.verticalHeader().setVisible(False)
         self.contacts_table.hide()
 
         # Create labels and input fields for name, phone and email
         self.name_label = QLabel("Name:", self)
         self.name_label.setGeometry(10, 10, 80, 40)
-        self.name_label.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.name_label.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.name_input = QLineEdit(self)
-        self.name_input.setStyleSheet("font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
+        self.name_input.setStyleSheet(
+            "font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
         self.name_input.setGeometry(70, 10, 200, 40)
 
         self.phone_label = QLabel("Phone:", self)
         self.phone_label.setGeometry(280, 10, 60, 40)
-        self.phone_label.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.phone_label.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.phone_input = QLineEdit(self)
-        self.phone_input.setStyleSheet("font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
+        self.phone_input.setStyleSheet(
+            "font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
         self.phone_input.setGeometry(345, 10, 200, 40)
 
         self.email_label = QLabel("Email:", self)
-        self.email_label.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.email_label.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.email_label.setGeometry(10, 60, 80, 40)
         self.email_input = QLineEdit(self)
-        self.email_input.setStyleSheet("font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
+        self.email_input.setStyleSheet(
+            "font-family: 'Quicksand'; font-size: 18px; border: none; border-bottom: 2px solid black;")
         self.email_input.setGeometry(70, 60, 475, 40)
 
         # Create buttons for adding, deleting, editing and sorting contacts
         self.add_button = QPushButton("Add", self)
         self.add_button.setGeometry(560, 10, 90, 40)
-        self.add_button.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.add_button.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.add_button.clicked.connect(self.add_contact)
 
         self.edit_button = QPushButton("Edit", self)
         self.edit_button.setGeometry(660, 10, 90, 40)
-        self.edit_button.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.edit_button.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.edit_button.clicked.connect(self.edit_contact)
 
         self.delete_button = QPushButton("Delete", self)
         self.delete_button.setGeometry(660, 60, 90, 40)
-        self.delete_button.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.delete_button.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.delete_button.clicked.connect(self.delete_contact)
 
         self.sort_button = QPushButton("Sort", self)
         self.sort_button.setGeometry(560, 60, 90, 40)
-        self.sort_button.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.sort_button.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.sort_button.clicked.connect(self.sort_contacts)
 
         # Create checkbox for showing/hiding the contacts table
         self.show_contacts_checkbox = QCheckBox("Show Contacts", self)
         self.show_contacts_checkbox.setGeometry(10, 430, 200, 40)
-        self.show_contacts_checkbox.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
-        self.show_contacts_checkbox.stateChanged.connect(self.toggle_contacts_table)
+        self.show_contacts_checkbox.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.show_contacts_checkbox.stateChanged.connect(
+            self.toggle_contacts_table)
 
         # Create button for refreshing the contacts table
         self.refresh_button = QPushButton("Refresh", self)
         self.refresh_button.setGeometry(660, 430, 90, 40)
-        self.refresh_button.setStyleSheet("font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
+        self.refresh_button.setStyleSheet(
+            "font-family: 'Raleway'; font-weight: bold; font-size: 18px;")
         self.refresh_button.clicked.connect(self.show_all_contacts)
 
         # Add all components to a vertical layout
@@ -120,7 +136,8 @@ class MainWindow(QMainWindow):
         name = re.match(r"^[A-Za-z ]+$", self.name_input.text())
         phone = re.match(r"^\d{10}$", self.phone_input.text())
         email = re.match(
-            r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", self.email_input.text()
+            r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$", self.email_input.text(
+            )
         )
 
         if name and phone and email:
@@ -152,7 +169,8 @@ class MainWindow(QMainWindow):
             mydb.commit()
             self.show_all_contacts()
         else:
-            QMessageBox.warning(self, "Error", "Please select a contact to delete.")
+            QMessageBox.warning(
+                self, "Error", "Please select a contact to delete.")
 
     def edit_contact(self):
         selected_rows = self.contacts_table.selectedItems()
@@ -194,7 +212,8 @@ class MainWindow(QMainWindow):
                     self, "Error", "An error occurred while retrieving the contact."
                 )
         else:
-            QMessageBox.warning(self, "Error", "Please select a contact to edit.")
+            QMessageBox.warning(
+                self, "Error", "Please select a contact to edit.")
 
     def sort_contacts(self):
         self.contacts_table.setSortingEnabled(True)
@@ -249,7 +268,8 @@ class MainWindow(QMainWindow):
         selected_rows = self.contacts_table.selectedIndexes()
         if selected_rows:
             indexes = [index.row() for index in selected_rows]
-            names = [self.contacts_table.item(index, 0).text() for index in indexes]
+            names = [self.contacts_table.item(
+                index, 0).text() for index in indexes]
 
             message_box = QMessageBox.question(
                 self,
