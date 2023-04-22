@@ -9,6 +9,7 @@ class EditContactDialog(QDialog):
         super().__init__(parent)
         self.name_label = QLabel("Name:")
         self.name_line_edit = QLineEdit(name)
+        self.setWindowIcon(QIcon("icon.png"))
         self.phone_label = QLabel("Phone:")
         self.phone_line_edit = QLineEdit(phone)
         self.email_label = QLabel("Email:")
